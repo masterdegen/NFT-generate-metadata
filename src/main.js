@@ -369,7 +369,7 @@ const startCreating = async () => {
         let loadedElements = [];
 
         results.forEach((layer) => {
-          if ((layer.trait_type != 'background' && layer.value != 'GREEN') && (layer.trait_type != 'skin type' && layer.value != 'LightSkin')) {
+          if ((layer.trait_type != 'Headware' && layer.value != 'Balaclava') && (layer.trait_type != 'Mouth')) {
             loadedElements.push(loadLayerImg(layer));
           }
         });

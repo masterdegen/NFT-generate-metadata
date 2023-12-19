@@ -47,6 +47,7 @@ const getImages = (_dir) => {
 const loadImgData = async (_imgObject) => {
   try {
     const image = await loadImage(`${_imgObject.path}`);
+    console.log('img', image);
     return {
       imgObject: _imgObject,
       loadedImage: image,
@@ -165,12 +166,14 @@ const startCreating = async () => {
   }
   let loadedImageObjects = [];
   images.forEach((imgObject) => {
+    console.log('create', imgObject);
     loadedImageObjects.push(loadImgData(imgObject));
   });
   await Promise.all(loadedImageObjects).then((loadedImageObjectArray) => {
     loadedImageObjectArray.forEach((loadedImageObject) => {
       draw(loadedImageObject);
       saveMetadata(loadedImageObject);
+      
       console.log(
         `Created metadata for image: ${loadedImageObject.imgObject.filename}`
       );
